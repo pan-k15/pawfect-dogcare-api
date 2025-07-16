@@ -16,6 +16,22 @@ const adminRoutes = require('./routes/admin')
 // Routes
 const authRoutes = require('./routes/auth')
 const bookingRoutes = require('./routes/bookings') // remove .default if using CommonJS
+const memberRoutes = require('./routes/members')
+const dogRoutes = require('./routes/dogs')
+const groomingBathRoutes = require('./routes/groomingBathRoutes')
+const dogRunRoutes = require('./routes/dogRunRoutes')
+const snackRoutes = require('./routes/snackRoutes')
+const cafeRoutes = require('./routes/cafeRoutes')
+
+app.use('/api/snacks', snackRoutes)
+
+app.use('/api/cafe', cafeRoutes)
+
+app.use('/api/dog-run', dogRunRoutes)
+
+app.use('/api/grooming-bath', groomingBathRoutes)
+
+app.use('/api/dogs', dogRoutes)
 
 app.use('/api/auth', authRoutes)
 app.use('/api/bookings', bookingRoutes)
@@ -24,7 +40,7 @@ app.use('/api/bookings', bookingRoutes)
 
 app.use('/api/admin/auth', adminAuthRoutes)
 app.use('/api/admin', adminRoutes)
-
+app.use('/api/members', memberRoutes)
 
 // Connect MongoDB
 mongoose.connect(process.env.MONGO_URI, {
